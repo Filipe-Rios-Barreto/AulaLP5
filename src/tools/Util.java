@@ -17,5 +17,10 @@ public class Util {
             componentes[i].setEnabled(valor);           
         }
     }
-    
+    public static void limpar(JComponent ... componentes) {
+        for (int i = 0; i < componentes.length; i++) {
+            //instanceof
+            ((JTextField) componentes[i]).setText("");
+        }
+    }
 }
