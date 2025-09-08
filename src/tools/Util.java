@@ -68,3 +68,7 @@ public class Util {
         return "";
     }
 }
+
+// primeiro commit - Pacotes tools e view. Util.java finalizado.
+//segundo commit - Tela principal e Telas dos cadastros finalizados
+//terceiro commit - Telas de cadastros usando o Util.java
