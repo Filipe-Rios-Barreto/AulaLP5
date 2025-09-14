@@ -49,15 +49,15 @@ public class Util {
     }
     
     public static int strToInt(String cad) {
-        return Integer.valueOf(cad);
+        return Integer.parseInt(cad);
     }
     
-    public static String strToStr(String num) {
+    public static String intToStr(String num) {
         return String.valueOf(num);
     }
     
-    public static String strToDouble(String num) {
-        return "";
+    public static double strToDouble(String num) {
+        return Double.parseDouble(num);
     }
     
     public static Date strToDate(String cad) {
@@ -65,11 +65,14 @@ public class Util {
     }
     
     public static String dateToStr(Date data) {
-        return "";
+        return null;
+    }
+    
+    public static String doubleToString(double num) {
+        return String.valueOf(num);
     }
 }
 
 // primeiro commit - Pacotes tools e view. Util.java finalizado.
 //segundo commit - Tela principal e Telas dos cadastros finalizados
 //terceiro commit - Telas de cadastros usando o Util.java
-//comentário de teste de commit
