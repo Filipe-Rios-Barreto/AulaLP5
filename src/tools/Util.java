@@ -44,7 +44,7 @@ public class Util {
     }
     
     public static boolean perguntar (String cad) {
-    JOptionPane.showConfirmDialog(null, cad);
+    int Opcao = JOptionPane.showConfirmDialog(null, cad, cad, JOptionPane.YES_NO_OPTION);
     return true;
     }
     
