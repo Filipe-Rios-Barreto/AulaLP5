@@ -51,7 +51,7 @@ public class Util {
         return 0;
     }
     public static String doubleToStr(double num) {
-        return "";
+        return String.valueOf(num);
     }
     public static Date strToDate(String num) {
         return null;

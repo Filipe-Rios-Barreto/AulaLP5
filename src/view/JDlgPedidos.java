@@ -39,6 +39,15 @@ public class JDlgPedidos extends javax.swing.JDialog {
         }
     }
     
+    public void beanView(Pedidos pedidos){
+        jTxtCodigo.setText( Util.intToStr(pedidos.getIdpedidos()));
+        jFmtData.setText(Util.dateToStr(pedidos.getData()));
+        jTxtTotal.setText(Util.doubleToStr(pedidos.getTotal()));
+        jCboClientes.setSelectedItem(pedidos.getClientes());
+        jCboVendedor.setSelectedItem(pedidos.getVendedor());
+        
+    }
+    
     public Pedidos viewBean() {
         Pedidos pedidos = new Pedidos();
         pedidos.setIdpedidos( Util.strToInt(jTxtCodigo.getText()));
@@ -87,6 +96,12 @@ public class JDlgPedidos extends javax.swing.JDialog {
         jLabel2.setText("Data");
 
         jLabel3.setText("Clientes");
+
+        jCboClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCboClientesActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Vendedor");
 
@@ -362,6 +377,10 @@ public class JDlgPedidos extends javax.swing.JDialog {
         JDlgPedidosProdutos jDlgPedidosProdutos = new JDlgPedidosProdutos(null, true);
         jDlgPedidosProdutos.setVisible(true);
     }//GEN-LAST:event_jBtnIncluirProdActionPerformed
+
+    private void jCboClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCboClientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCboClientesActionPerformed
 
     /**
      * @param args the command line arguments
