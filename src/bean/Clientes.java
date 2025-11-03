@@ -1,5 +1,5 @@
 package bean;
-// Generated 15/09/2025 10:21:50 by Hibernate Tools 4.3.1
+// Generated 15/09/2025 10:21:40 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -20,7 +20,6 @@ import javax.persistence.Table;
 )
 public class Clientes  implements java.io.Serializable {
 
-
      private int idclientes;
      private String nome;
      private String cpf;
@@ -31,6 +30,7 @@ public class Clientes  implements java.io.Serializable {
      private String bairro;
      private int estadocivil;
      private int sexo;
+     
 
     public Clientes() {
     }
@@ -49,7 +49,7 @@ public class Clientes  implements java.io.Serializable {
        this.numero = numero;
        this.bairro = bairro;
        this.estadocivil = estadocivil;
-       this.sexo = sexo;
+       this.sexo = sexo;       
     }
    
      @Id 
@@ -152,6 +152,22 @@ public class Clientes  implements java.io.Serializable {
     
     public void setSexo(int sexo) {
         this.sexo = sexo;
+    }
+    
+    @Override
+    public String toString(){
+         return this.nome;
+        
+    }
+    
+    @Override
+    public boolean equals(Object object){
+        if (object instanceof Vendedor){
+            if (this.idclientes == ((Clientes)object).idclientes){
+                return true;
+            }
+        }
+        return false;
     }
 
 }

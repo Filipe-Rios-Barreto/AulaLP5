@@ -1,5 +1,7 @@
 package bean;
-// Generated 15/09/2025 10:21:50 by Hibernate Tools 4.3.1
+// Generated 15/09/2025 10:21:40 by Hibernate Tools 4.3.1
+
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,7 +21,7 @@ public class Produtos  implements java.io.Serializable {
      private int idprodutos;
      private String nome;
      private double valorUnitario;
-     private int grupo;
+     private int grupo;     
 
     public Produtos() {
     }
@@ -33,6 +35,7 @@ public class Produtos  implements java.io.Serializable {
        this.nome = nome;
        this.valorUnitario = valorUnitario;
        this.grupo = grupo;
+       
     }
    
      @Id 
@@ -76,6 +79,17 @@ public class Produtos  implements java.io.Serializable {
     public void setGrupo(int grupo) {
         this.grupo = grupo;
     }
+    
+    @Override
+    public boolean equals(Object object){
+        if (object instanceof Vendedor){
+            if (this.idprodutos == ((Produtos)object).idprodutos){
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 }
 

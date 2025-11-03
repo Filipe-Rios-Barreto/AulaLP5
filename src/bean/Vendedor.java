@@ -1,5 +1,5 @@
 package bean;
-// Generated 15/09/2025 10:21:50 by Hibernate Tools 4.3.1
+// Generated 15/09/2025 10:21:40 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -23,10 +23,10 @@ public class Vendedor  implements java.io.Serializable {
 
      private int idvendedor;
      private String nome;
-     private Double salario;
-     private Double comissao;
+     private double salario;
+     private double comissao;
      private String vendedorcol;
-     private Set pedidoses = new HashSet(0);
+
 
     public Vendedor() {
     }
@@ -35,13 +35,13 @@ public class Vendedor  implements java.io.Serializable {
     public Vendedor(int idvendedor) {
         this.idvendedor = idvendedor;
     }
-    public Vendedor(int idvendedor, String nome, Double salario, Double comissao, String vendedorcol) {
+    public Vendedor(int idvendedor, String nome, double salario, double comissao, String vendedorcol) {
        this.idvendedor = idvendedor;
        this.nome = nome;
        this.salario = salario;
        this.comissao = comissao;
        this.vendedorcol = vendedorcol;
-       this.pedidoses = pedidoses;
+
     }
    
      @Id 
@@ -68,21 +68,21 @@ public class Vendedor  implements java.io.Serializable {
 
     
     @Column(name="salario", precision=10)
-    public Double getSalario() {
+    public double getSalario() {
         return this.salario;
     }
     
-    public void setSalario(Double salario) {
+    public void setSalario(double salario) {
         this.salario = salario;
     }
 
     
     @Column(name="comissao", precision=10)
-    public Double getComissao() {
+    public double getComissao() {
         return this.comissao;
     }
     
-    public void setComissao(Double comissao) {
+    public void setComissao(double comissao) {
         this.comissao = comissao;
     }
 
@@ -95,7 +95,21 @@ public class Vendedor  implements java.io.Serializable {
     public void setVendedorcol(String vendedorcol) {
         this.vendedorcol = vendedorcol;
     }
+    
+         @Override
+    public String toString(){
+         return this.nome;
+        
+    }
+    
+     @Override
+    public boolean equals(Object object){
+        if (object instanceof Vendedor){
+            if (this.idvendedor == ((Vendedor)object).idvendedor){
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
-
-

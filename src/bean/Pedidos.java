@@ -1,5 +1,5 @@
 package bean;
-// Generated 15/09/2025 10:21:50 by Hibernate Tools 4.3.1
+// Generated 15/09/2025 10:21:40 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -11,6 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,9 +30,8 @@ public class Pedidos  implements java.io.Serializable {
      private Clientes clientes;
      private Vendedor vendedor;
      private Date data;
-     private Double total;
-
-
+     private double total;
+     
     public Pedidos() {
     }
 
@@ -39,12 +39,13 @@ public class Pedidos  implements java.io.Serializable {
     public Pedidos(int idpedidos) {
         this.idpedidos = idpedidos;
     }
-    public Pedidos(int idpedidos, Clientes clientes, Vendedor vendedor, Date data, Double total) {
+    public Pedidos(int idpedidos, Clientes clientes, Vendedor vendedor, Date data, double total) {
        this.idpedidos = idpedidos;
        this.clientes = clientes;
        this.vendedor = vendedor;
        this.data = data;
        this.total = total;
+       
     }
    
      @Id 
@@ -91,13 +92,14 @@ public class Pedidos  implements java.io.Serializable {
 
     
     @Column(name="total", precision=10)
-    public Double getTotal() {
+    public double getTotal() {
         return this.total;
     }
     
-    public void setTotal(Double total) {
+    public void setTotal(double total) {
         this.total = total;
     }
+
 
 }
 

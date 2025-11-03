@@ -1,5 +1,5 @@
 package bean;
-// Generated 15/09/2025 10:21:50 by Hibernate Tools 4.3.1
+// Generated 15/09/2025 10:21:40 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -133,7 +133,7 @@ public class Usuarios  implements java.io.Serializable {
     public void setAtivo(String ativo) {
         this.ativo = ativo;
     }
-
+    
 
 
 
