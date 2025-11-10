@@ -1,4 +1,4 @@
-package bean;
+ package bean;
 // Generated 15/09/2025 10:21:40 by Hibernate Tools 4.3.1
 
 
