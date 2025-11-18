@@ -5,6 +5,7 @@
  */
 package view;
 
+import bean.PedidosProdutos;
 import bean.Produtos;
 import dao.ProdutosDAO;
 import java.util.List;
@@ -16,9 +17,16 @@ import tools.Util;
  */
 public class JDlgPedidosProdutos extends javax.swing.JDialog {
 
+    private JDlgPedidos jDlgPedidos;
+
     /**
      * Creates new form JDlgPedidosProdutos
      */
+    
+    public void setTelaAnterior(JDlgPedidos jDlgPedidos) {
+        this.jDlgPedidos = jDlgPedidos;
+    }
+    
     public JDlgPedidosProdutos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -32,6 +40,7 @@ public class JDlgPedidosProdutos extends javax.swing.JDialog {
             jCboProdutos.addItem((Produtos) object);
         }
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -65,7 +74,19 @@ public class JDlgPedidosProdutos extends javax.swing.JDialog {
 
         jLabel2.setText("Quantidade");
 
+        jTxtQuantidade.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTxtQuantidadeKeyReleased(evt);
+            }
+        });
+
         jLabel3.setText("Valor Unitário");
+
+        jTxtTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxtTotalActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Total");
 
@@ -150,6 +171,11 @@ public class JDlgPedidosProdutos extends javax.swing.JDialog {
 
     private void jBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOkActionPerformed
         // TODO add your handling code here:
+        PedidosProdutos pedidosProdutos = new PedidosProdutos();
+        pedidosProdutos.setProdutos((Produtos) jCboProdutos.getSelectedItem());
+        pedidosProdutos.setQuantidade(Util.strToInt(jTxtQuantidade.getText()));
+        pedidosProdutos.setValorUnitario(Util.strToDouble(jTxtValorUnitario.getText()));
+        jDlgPedidos.controllerPedidosProdutos.addBean(pedidosProdutos);
         setVisible(false);
     }//GEN-LAST:event_jBtnOkActionPerformed
 
@@ -167,6 +193,22 @@ public class JDlgPedidosProdutos extends javax.swing.JDialog {
         
     
     }//GEN-LAST:event_jCboProdutosActionPerformed
+
+    private void jTxtTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtTotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxtTotalActionPerformed
+
+    private void jTxtQuantidadeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtQuantidadeKeyReleased
+        // TODO add your handling code here:
+        if(!jTxtQuantidade.getText().isEmpty()){
+        Produtos produtos = (Produtos) jCboProdutos.getSelectedItem();
+        int quant = Util.strToInt(jTxtQuantidade.getText());
+        jTxtTotal.setText(Util.doubleToStr(quant*produtos.getValorUnitario()));
+        }  else{ jTxtTotal.setText("0");
+        }
+
+        
+    }//GEN-LAST:event_jTxtQuantidadeKeyReleased
 
     /**
      * @param args the command line arguments

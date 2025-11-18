@@ -88,7 +88,7 @@ public class Produtos  implements java.io.Serializable {
     
     @Override
     public boolean equals(Object object){
-        if (object instanceof Vendedor){
+        if (object instanceof Produtos){
             if (this.idprodutos == ((Produtos)object).idprodutos){
                 return true;
             }

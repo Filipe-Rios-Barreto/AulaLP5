@@ -10,6 +10,7 @@ import bean.Pedidos;
 import bean.Vendedor;
 import dao.ClientesDAO;
 import dao.VendedorDAO;
+import java.util.ArrayList;
 import java.util.List;
 import tools.Util;
 
@@ -18,7 +19,8 @@ import tools.Util;
  * @author u1845853
  */
 public class JDlgPedidos extends javax.swing.JDialog {
-
+    
+    ControllerPedidosProdutos controllerPedidosProdutos;
     /**
      * Creates new form JDlgPedidos
      */
@@ -37,6 +39,10 @@ public class JDlgPedidos extends javax.swing.JDialog {
         for (Object object : listaVend) {
             jCboVendedor.addItem((Vendedor) object);
         }
+        controllerPedidosProdutos = new ControllerPedidosProdutos();
+        controllerPedidosProdutos.setList(new ArrayList());
+        jTable1.setModel(controllerPedidosProdutos);
+        
     }
     
     public void beanView(Pedidos pedidos){
@@ -375,6 +381,7 @@ public class JDlgPedidos extends javax.swing.JDialog {
     private void jBtnIncluirProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirProdActionPerformed
         // TODO add your handling code here:
         JDlgPedidosProdutos jDlgPedidosProdutos = new JDlgPedidosProdutos(null, true);
+        jDlgPedidosProdutos.setTelaAnterior(this);
         jDlgPedidosProdutos.setVisible(true);
     }//GEN-LAST:event_jBtnIncluirProdActionPerformed
 

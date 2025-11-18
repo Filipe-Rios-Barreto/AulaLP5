@@ -125,6 +125,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTxtQuantidade">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTxtQuantidadeKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTxtValorUnitario">
     </Component>
@@ -134,6 +137,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTxtTotal">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTxtTotalActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>

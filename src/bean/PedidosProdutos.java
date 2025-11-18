@@ -23,16 +23,16 @@ import javax.persistence.Table;
 public class PedidosProdutos  implements java.io.Serializable {
 
 
-     private Integer idpedidosProdutos;
+     private int idpedidosProdutos;
      private Pedidos pedidos;
      private Produtos produtos;
-     private Integer quantidade;
-     private BigDecimal valorUnitario;
+     private int quantidade;
+     private double valorUnitario;
 
     public PedidosProdutos() {
     }
 
-    public PedidosProdutos(Pedidos pedidos, Produtos produtos, Integer quantidade, BigDecimal valorUnitario) {
+    public PedidosProdutos(Pedidos pedidos, Produtos produtos, int quantidade, double valorUnitario) {
        this.pedidos = pedidos;
        this.produtos = produtos;
        this.quantidade = quantidade;
@@ -43,11 +43,11 @@ public class PedidosProdutos  implements java.io.Serializable {
 
     
     @Column(name="idpedidos_produtos", unique=true, nullable=false)
-    public Integer getIdpedidosProdutos() {
+    public int getIdpedidosProdutos() {
         return this.idpedidosProdutos;
     }
     
-    public void setIdpedidosProdutos(Integer idpedidosProdutos) {
+    public void setIdpedidosProdutos(int idpedidosProdutos) {
         this.idpedidosProdutos = idpedidosProdutos;
     }
 
@@ -73,26 +73,23 @@ public class PedidosProdutos  implements java.io.Serializable {
 
     
     @Column(name="quantidade")
-    public Integer getQuantidade() {
+    public int getQuantidade() {
         return this.quantidade;
     }
     
-    public void setQuantidade(Integer quantidade) {
+    public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
 
     
     @Column(name="valorUnitario", precision=10)
-    public BigDecimal getValorUnitario() {
+    public double getValorUnitario() {
         return this.valorUnitario;
     }
     
-    public void setValorUnitario(BigDecimal valorUnitario) {
+    public void setValorUnitario(double valorUnitario) {
         this.valorUnitario = valorUnitario;
     }
-
-
-
 
 }
 

@@ -59,4 +59,8 @@ public class Util {
     public static String dateToStr(Date num) {
         return "";
     }
+
+    public static int strtoInt(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
