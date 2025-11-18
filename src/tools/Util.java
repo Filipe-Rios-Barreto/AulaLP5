@@ -37,8 +37,8 @@ public class Util {
     }
     
     public static boolean perguntar(String cad) {
-        JOptionPane.showConfirmDialog(null, cad);
-        return true;
+        int resp = JOptionPane.showConfirmDialog(null, cad);
+        return resp == JOptionPane.YES_OPTION;
     }
     
     public static int strToInt(String num) {
