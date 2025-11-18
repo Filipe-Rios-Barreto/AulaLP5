@@ -368,7 +368,8 @@ public class JDlgPedidos extends javax.swing.JDialog {
     private void jBtnExcluirProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirProdActionPerformed
         // TODO add your handling code here:
         if (Util.perguntar("Deseja excluir o produto ?")== true) {
-            
+            int rowindex = jTable1.getSelectedRow();
+            controllerPedidosProdutos.removeBean(rowindex);
         }
     }//GEN-LAST:event_jBtnExcluirProdActionPerformed
 
