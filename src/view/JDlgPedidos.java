@@ -344,13 +344,19 @@ public class JDlgPedidos extends javax.swing.JDialog {
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
-        // TODO add your handling code here:
-//        if (Util.perguntar("Deseja excluir ?") == true) {
-//            UsuariosDAO usuariosDAO = new UsuariosDAO();
-//            usuariosDAO.delete(viewBean());
-//        }
-//        Util.limpar(jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jFmtDataDeNascimento,
-//            jPwfSenha, jCboNivel, jChbAtivo);
+        if (Util.perguntar("Vai apagar memo?")){
+            PedidosDAO pedidosDAO = new PedidosDAO();
+            PedidosProdutosDAO pedidosProdutosDAO = new PedidosProdutosDAO();
+            Pedidos pedidos = viewBean();
+
+                
+                for (int ind = 0; ind < jTable1.getRowCount(); ind++) {
+                    PedidosProdutos pedidosProdutos = controllerPedidosProdutos.getBean(ind);
+                    pedidosProdutos.setPedidos(pedidos);
+                    pedidosProdutosDAO.delete(pedidosProdutos);
+                }
+                pedidosDAO.delete(pedidos);
+        }
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
