@@ -55,6 +55,10 @@ public class JDlgPedidos extends javax.swing.JDialog {
         jTxtTotal.setText(Util.doubleToStr(pedidos.getTotal()));
         jCboClientes.setSelectedItem(pedidos.getClientes());
         jCboVendedor.setSelectedItem(pedidos.getVendedor());
+        PedidosProdutosDAO pedidosProdutosDAO = new PedidosProdutosDAO();
+        List lista = (List) pedidosProdutosDAO.listProdutos(pedidos);
+        controllerPedidosProdutos.setList(lista);
+
         
     }
     
