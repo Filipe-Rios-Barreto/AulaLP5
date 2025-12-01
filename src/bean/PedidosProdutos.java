@@ -1,7 +1,8 @@
 package bean;
-// Generated 15/09/2025 10:21:41 by Hibernate Tools 4.3.1
+// Generated 15/09/2025 10:21:40 by Hibernate Tools 4.3.1
 
 
+import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -50,7 +51,7 @@ public class PedidosProdutos  implements java.io.Serializable {
         this.idpedidosProdutos = idpedidosProdutos;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+@ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="pedidos")
     public Pedidos getPedidos() {
         return this.pedidos;
@@ -60,7 +61,7 @@ public class PedidosProdutos  implements java.io.Serializable {
         this.pedidos = pedidos;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+@ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="produtos")
     public Produtos getProdutos() {
         return this.produtos;
@@ -89,9 +90,6 @@ public class PedidosProdutos  implements java.io.Serializable {
     public void setValorUnitario(double valorUnitario) {
         this.valorUnitario = valorUnitario;
     }
-
-
-
 
 }
 

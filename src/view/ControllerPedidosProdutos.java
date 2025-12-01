@@ -15,28 +15,31 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ControllerPedidosProdutos extends AbstractTableModel {
 
-    private List lstPedProd;
+    private List lstPedidosProdutos;
 
     public void setList(List lstPedidos) {
-        this.lstPedProd = lstPedidos;
-    }
-
-    public PedidosProdutos getBean(int rowIndex) {
-        return (PedidosProdutos) lstPedProd.get(rowIndex);
-    }
-
-    public void addBean(PedidosProdutos pedidosProdutos) {
-        this.lstPedProd.add(pedidosProdutos);
-    }
-
-    public void removeBean(int rowIndex) {
-        this.lstPedProd.remove(rowIndex);
+        this.lstPedidosProdutos = lstPedidos;
+        this.fireTableDataChanged();
     }
     
+    public PedidosProdutos getBean(int rowIndex) {
+        return (PedidosProdutos) lstPedidosProdutos.get(rowIndex);
+    }
+    
+    public void addBean(PedidosProdutos pedidosProdutos) {
+        this.lstPedidosProdutos.add(pedidosProdutos);
+        this.fireTableDataChanged();
+    }
+    
+    public void removeBean(int rowIndex){
+        this.lstPedidosProdutos.remove(rowIndex);
+        this.fireTableDataChanged();
+    }
+
     @Override
     public int getRowCount() {
-        return lstPedProd.size();
-
+        return lstPedidosProdutos.size();
+                
     }
 
     @Override
@@ -46,16 +49,16 @@ public class ControllerPedidosProdutos extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        PedidosProdutos pedidosProdutos = (PedidosProdutos) lstPedProd.get(rowIndex);
-        if (columnIndex == 0) {
+        PedidosProdutos pedidosProdutos = (PedidosProdutos) lstPedidosProdutos.get( rowIndex);
+        if ( columnIndex == 0 ){
             return pedidosProdutos.getProdutos().getIdprodutos();
-        } else if (columnIndex == 1) {
-            return pedidosProdutos.getProdutos().getNome();
-        } else if (columnIndex == 2) {
+        } else if (columnIndex ==1) {
+            return pedidosProdutos.getProdutos().getNome();        
+        } else if (columnIndex ==2) {
             return pedidosProdutos.getQuantidade();
-        } else if (columnIndex == 3) {
+        } else if (columnIndex ==3) {
             return pedidosProdutos.getValorUnitario();
-        } else if (columnIndex == 4) {
+        } else if (columnIndex ==4) {
             return pedidosProdutos.getQuantidade() * pedidosProdutos.getValorUnitario();
         }
         return "";
@@ -63,18 +66,18 @@ public class ControllerPedidosProdutos extends AbstractTableModel {
 
     @Override
     public String getColumnName(int columnIndex) {
-        if (columnIndex == 0) {
+        if ( columnIndex == 0) {
             return "Código";
-        } else if (columnIndex == 1) {
-            return "Produto";
-        } else if (columnIndex == 2) {
+        } else if ( columnIndex == 1) {
+            return "Produto";         
+        } else if ( columnIndex == 2) {
             return "Quantidade";
-        } else if (columnIndex == 3) {
+        } else if ( columnIndex == 3) {
             return "Valor Unitário";
-        } else if (columnIndex == 4) {
+        } else if ( columnIndex == 4) {
             return "Total";
-        }
+        } 
         return "";
     }
-
+    
 }

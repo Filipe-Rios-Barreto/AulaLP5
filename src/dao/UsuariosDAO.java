@@ -12,7 +12,7 @@ import org.hibernate.criterion.Restrictions;
 
 /**
  *
- * @author u11200121120
+ * @author u1845853
  */
 public class UsuariosDAO extends AbstractDAO {
 
@@ -45,7 +45,7 @@ public class UsuariosDAO extends AbstractDAO {
     public Object list(int codigo) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(Usuarios.class);
-        criteria.add(Restrictions.eq("idusuarios", codigo));
+        criteria.add(Restrictions.eq("idusuarios", codigo) );
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
@@ -59,9 +59,10 @@ public class UsuariosDAO extends AbstractDAO {
         session.getTransaction().commit();
         return lista;
     }
+
     public static void main(String[] args) {
         UsuariosDAO usuariosDAO = new UsuariosDAO();
         usuariosDAO.listAll();
-        System.out.println("Deu certo");
+        System.out.println("deu certo");
     }
 }

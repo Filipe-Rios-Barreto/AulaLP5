@@ -6,6 +6,7 @@
 package view;
 
 import bean.Pedidos;
+
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
