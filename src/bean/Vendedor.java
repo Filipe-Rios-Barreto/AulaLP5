@@ -1,8 +1,7 @@
 package bean;
-// Generated 15/09/2025 10:21:40 by Hibernate Tools 4.3.1
+// Generated 15/09/2025 10:21:41 by Hibernate Tools 4.3.1
 
 
-import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,7 +26,6 @@ public class Vendedor  implements java.io.Serializable {
      private double comissao;
      private String vendedorcol;
 
-
     public Vendedor() {
     }
 
@@ -41,7 +39,6 @@ public class Vendedor  implements java.io.Serializable {
        this.salario = salario;
        this.comissao = comissao;
        this.vendedorcol = vendedorcol;
-
     }
    
      @Id 
@@ -95,21 +92,22 @@ public class Vendedor  implements java.io.Serializable {
     public void setVendedorcol(String vendedorcol) {
         this.vendedorcol = vendedorcol;
     }
-    
-         @Override
+
+    @Override
     public String toString(){
-         return this.nome;
-        
+        return this.nome;
     }
     
      @Override
     public boolean equals(Object object){
         if (object instanceof Vendedor){
-            if (this.idvendedor == ((Vendedor)object).idvendedor){
+            Vendedor vendedor = (Vendedor)object;
+            if (this.getIdvendedor() == vendedor.getIdvendedor()){
                 return true;
             }
         }
-        return false;
+         return false;
     }
-
 }
+
+

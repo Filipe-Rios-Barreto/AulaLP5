@@ -5,7 +5,6 @@
  */
 package dao;
 
-
 import bean.Clientes;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -13,7 +12,7 @@ import org.hibernate.criterion.Restrictions;
 
 /**
  *
- * @author u1845853
+ * @author u11200121120
  */
 public class ClientesDAO extends AbstractDAO {
 
@@ -46,7 +45,7 @@ public class ClientesDAO extends AbstractDAO {
     public Object list(int codigo) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(Clientes.class);
-        criteria.add(Restrictions.eq("idclientes", codigo) );
+        criteria.add(Restrictions.eq("idclientes", codigo));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
@@ -60,7 +59,6 @@ public class ClientesDAO extends AbstractDAO {
         session.getTransaction().commit();
         return lista;
     }
-
     public static void main(String[] args) {
         ClientesDAO clientesDAO = new ClientesDAO();
         clientesDAO.listAll();

@@ -18,9 +18,9 @@ public class JDlgUsuariosPesquisar extends javax.swing.JDialog {
     /**
      * Creates new form JDlgUsuariosPesquisar
      */
-    private JDlgUsuarios jDlgUsuarios;
+    private JDlg_Usuarios jDlgUsuarios;
     ControllerUsuarios controllerUsuarios;
-    
+
     public JDlgUsuariosPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -33,10 +33,10 @@ public class JDlgUsuariosPesquisar extends javax.swing.JDialog {
         jTable1.setModel(controllerUsuarios);
     }
 
-    public void setTelaPai( JDlgUsuarios jDlgUsuarios) {;
+    public void setTelaAnterior(JDlg_Usuarios jDlgUsuarios) {;
         this.jDlgUsuarios = jDlgUsuarios;
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -105,17 +105,18 @@ public class JDlgUsuariosPesquisar extends javax.swing.JDialog {
 
     private void jBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOkActionPerformed
         // TODO add your handling code here:
-        if(jTable1.getSelectedRow() == -1){
-            Util.mensagem("Largue de ser cabecudo");
+        if (jTable1.getSelectedRow() == -1) {
+            Util.mensagem("Cabeçudo selecione uma linha");
+        } else {
+            Usuarios usuarios = controllerUsuarios.getBean(jTable1.getSelectedRow());
+            jDlgUsuarios.beanView(usuarios);
+            this.setVisible(false);
         }
-        Usuarios usuarios =  controllerUsuarios.getBean( jTable1.getSelectedRow() );
-        jDlgUsuarios.beanView(usuarios);
-        this.setVisible(false);
     }//GEN-LAST:event_jBtnOkActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-        if (evt.getClickCount() == 2){
+        if (evt.getClickCount() == 2) {
             jBtnOkActionPerformed(null);
         }
     }//GEN-LAST:event_jTable1MouseClicked

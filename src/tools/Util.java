@@ -48,7 +48,7 @@ public class Util {
         return String.valueOf(num);
     }
     public static double strToDouble(String num) {
-        return 0;
+        return Double.parseDouble(num);
     }
     public static String doubleToStr(double num) {
         return String.valueOf(num);
@@ -58,9 +58,5 @@ public class Util {
     }
     public static String dateToStr(Date num) {
         return "";
-    }
-
-    public static int strtoInt(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

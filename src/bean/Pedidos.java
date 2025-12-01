@@ -1,9 +1,8 @@
 package bean;
-// Generated 15/09/2025 10:21:40 by Hibernate Tools 4.3.1
+// Generated 15/09/2025 10:21:41 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +10,6 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -31,7 +29,7 @@ public class Pedidos  implements java.io.Serializable {
      private Vendedor vendedor;
      private Date data;
      private double total;
-     
+
     public Pedidos() {
     }
 
@@ -45,7 +43,6 @@ public class Pedidos  implements java.io.Serializable {
        this.vendedor = vendedor;
        this.data = data;
        this.total = total;
-       
     }
    
      @Id 
@@ -99,7 +96,6 @@ public class Pedidos  implements java.io.Serializable {
     public void setTotal(double total) {
         this.total = total;
     }
-
 
 }
 
