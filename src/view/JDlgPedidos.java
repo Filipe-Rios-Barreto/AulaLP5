@@ -15,6 +15,7 @@ import dao.PedidosProdutosDAO;
 import dao.VendedorDAO;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JTable;
 import tools.Util;
 
 /**
@@ -61,6 +62,11 @@ public class JDlgPedidos extends javax.swing.JDialog {
 
         
     }
+
+    public JTable getjTable1() {
+        return jTable1;
+    }
+    
     
     public Pedidos viewBean() {
         Pedidos pedidos = new Pedidos();
@@ -373,8 +379,12 @@ public class JDlgPedidos extends javax.swing.JDialog {
             }
         } else {
             pedidosDAO.update(pedidos);
-            //remove todos os pedidosprodutos 
-
+            pedidosProdutosDAO.deletePedido(pedidos);
+            for (int ind = 0; ind < jTable1.getRowCount(); ind++) {
+                PedidosProdutos pedidosProdutos = controllerPedidosProdutos.getBean(ind);
+                pedidosProdutos.setPedidos(pedidos);
+                pedidosProdutosDAO.insert(pedidosProdutos);
+    }
         }
 
         Util.habilitar(false, jTxtCodigo, jFmtData, jCboClientes, 
@@ -396,13 +406,15 @@ public class JDlgPedidos extends javax.swing.JDialog {
     private void jBtnAlterarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarProdActionPerformed
         // TODO add your handling code here:
         JDlgPedidosProdutos jDlgPedidosProdutos = new JDlgPedidosProdutos(null, true);
+        PedidosProdutos pedidosProdutos = controllerPedidosProdutos.getBean(jTable1.getSelectedRow());
+        jDlgPedidosProdutos.setTelaAnterior(this, pedidosProdutos);
         jDlgPedidosProdutos.setVisible(true);
     }//GEN-LAST:event_jBtnAlterarProdActionPerformed
 
     private void jBtnIncluirProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirProdActionPerformed
         // TODO add your handling code here:
         JDlgPedidosProdutos jDlgPedidosProdutos = new JDlgPedidosProdutos(null, true);
-        jDlgPedidosProdutos.setTelaAnterior(this);
+        jDlgPedidosProdutos.setTelaAnterior(this, null);
         jDlgPedidosProdutos.setVisible(true);
     }//GEN-LAST:event_jBtnIncluirProdActionPerformed
 

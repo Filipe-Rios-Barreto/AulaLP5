@@ -41,7 +41,14 @@ public class PedidosProdutosDAO extends AbstractDAO {
         session.delete(object);
         session.getTransaction().commit();
     }
-
+    
+    public void deletePedido(Pedidos pedidos) {
+        List lista = (List) listProdutos(pedidos);
+        for (int i = 0; i < lista.size(); i++) {
+            PedidosProdutos pedidosProdutos = (PedidosProdutos) lista.get(i);
+            delete(pedidosProdutos);
+        }
+    }
     @Override
     public Object list(int codigo) {
         session.beginTransaction();
@@ -74,6 +81,5 @@ public class PedidosProdutosDAO extends AbstractDAO {
         PedidosProdutosDAO pedidosProdutosDAO = new PedidosProdutosDAO();
         pedidosProdutosDAO.listAll();
     }
-    
     
 }
